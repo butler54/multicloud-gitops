@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  annotations:
+    tekton.dev/pipelines.minVersion: 0.12.1
+    tekton.dev/tags: build-tool
+  name: mcad-build
+  labels:
+    app.kubernetes.io/version: '0.1'
+    operator.tekton.dev/provider-type: community
+spec:
+  description: This Task can be used to run a Maven build.
+  workspaces:
+    - description: The workspace consisting of mcad project
+      name: source
+  steps:
+    - image: 'registry.access.redhat.com/ubi8/go-toolset:latest'
+      args:
+        - mcad-controller
+      command:
+        - make
+      name: mcad-controller
+      workingDir: $(workspaces.source.path)
+      resources:
+        requests:
+          memory: 512Mi
+          cpu: 200m
+        limits:
+          memory: 4Gi
+          cpu: '1'

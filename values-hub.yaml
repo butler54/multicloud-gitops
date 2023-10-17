@@ -8,6 +8,7 @@ clusterGroup:
     - golang-external-secrets
     - config-demo
     - hello-world
+    - devops
 
   subscriptions:
     acm:
@@ -16,10 +17,14 @@ clusterGroup:
       channel: release-2.8
       #csv: advanced-cluster-management.v2.6.1
 
+    openshift-pipelines:
+      name: openshift-pipelines-operator-rh
+      namespace: openshift-operators
   projects:
     - hub
     - config-demo
     - hello-world
+    - devops
 
   applications:
     acm:
@@ -56,6 +61,22 @@ clusterGroup:
       namespace: hello-world
       project: hello-world
       path: charts/all/hello-world
+
+    pipelines:
+      name: pipelines
+      namespace: devops
+      project: devops
+      path: charts/all/pipelines
+      ignoreDifferences:
+      - kind: ServiceAccount
+        jsonPointers:
+        - /imagePullSecrets
+        - /secrets
+      overrides:
+        - name: cloudProvider.storageClass
+          value: ibmc-vpc-block-10iops-tier
+        - name: cloudProvider.provisioner
+          value: "vpc.block.csi.ibm.io"
 
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm

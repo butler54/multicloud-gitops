@@ -1,0 +1,28 @@
+cloudProvider:
+  storageClass: gp3-csi
+
+site:
+  name: example
+
+global:
+  pattern: gitops-pipelines
+  repoURL: "https://github.com/butler54/gitops-pipelines"
+  targetRevision: main
+
+  clusterGroup:
+    name: hub
+
+  cicd:
+    namespace: devops
+
+  git:
+    git:
+    taskImage: image-registry.openshift-image-registry.svc:5000/openshift/tools
+    email: chris.butler@redhat.com
+    account: butler54
+    hostname: https://github.com
+    dev_revision: main
+
+  app:
+    app_specific:
+      keys:

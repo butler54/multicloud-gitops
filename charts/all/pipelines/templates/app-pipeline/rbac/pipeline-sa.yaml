@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ServiceAccount
+imagePullSecrets:
+- name: image-registry-credentials
+metadata:
+  name: pipeline
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/syncOptions: ServerSideApply=true
+secrets:
+  - name: acs-api-token
+  - name: git-secret
+{{- if eq .Values.global.imageregistry.type "quay" }}
+  - name: quay-pull-secret
+{{- end }}

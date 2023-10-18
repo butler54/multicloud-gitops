@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: pipeline-pvc
-  namespace: devsecops-ci
+  namespace: {{ .Values.global.cicd.namespace }}
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
 spec:

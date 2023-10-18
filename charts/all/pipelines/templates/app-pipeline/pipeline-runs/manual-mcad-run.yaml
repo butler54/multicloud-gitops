@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
   name: manual-mcad-run
-  namespace: devsecops-ci
+  namespace: {{ .Values.global.cicd.namespace }}
 spec:
   pipelineRef:
     name: mcad-pipeline

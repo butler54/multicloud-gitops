@@ -24,5 +24,6 @@ global:
     dev_revision: main
 
   app:
-    app_specific:
-      keys:
+    mcad:
+      image:
+      repo: https://github.com/project-codeflare/multi-cluster-app-dispatcher

@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  annotations:
+    tekton.dev/pipelines.minVersion: 0.12.1
+    tekton.dev/tags: build-tool
+  name: image-build
+  labels:
+    app.kubernetes.io/version: '0.1'
+    operator.tekton.dev/provider-type: community
+spec:
+  description: This Task can be used to run build the image
+  workspaces:
+    - description: The workspace consisting of mcad project
+      name: source
+  steps:
+    - image: 'registry.access.redhat.com/ubi9/podman:latest'
+      script: |
+        #!/usr/bin/env sh
+        podman build --no-cache --tag mcad-controller:latest
+        
+      name: podman
+      workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
+      resources:
+        requests:
+          memory: 512Mi
+          cpu: 200m
+        limits:
+          memory: 4Gi
+          cpu: '1'

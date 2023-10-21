@@ -20,7 +20,7 @@ spec:
       command:
         - ls
       name: ls
-      workingDir: $(workspaces.source.path)
+      workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
       resources:
         requests:
           memory: 512Mi
@@ -34,7 +34,7 @@ spec:
       command:
         - make
       name: mcad-controller
-      workingDir: $(workspaces.source.path)
+      workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
       resources:
         requests:
           memory: 512Mi

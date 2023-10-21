@@ -23,7 +23,7 @@ spec:
         - '/workspace/source/multi-cluster-app-dispatcher'
       command:
         - git 
-      name: git config setup
+      name: gitsetup
       workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
       resources:
         requests:

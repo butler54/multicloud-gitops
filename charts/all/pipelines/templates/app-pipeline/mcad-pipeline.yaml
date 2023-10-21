@@ -21,8 +21,9 @@ spec:
       value: $(params.APP_SOURCE_REVISION)
     - name: depth
       value: "0"
-    - name: subdirectory
-      value: multi-cluster-app-dispatcher
+    # not sure what this is for,
+    # - name: subdirectory
+    #   value: multi-cluster-app-dispatcher
     - name: deleteExisting
       value: "true"
     taskRef:

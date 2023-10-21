@@ -16,7 +16,7 @@ spec:
   steps:
     - image: 'registry.access.redhat.com/ubi8/go-toolset:latest'
       args:
-        - alh
+        - '-alh'
       command:
         - ls
       name: ls

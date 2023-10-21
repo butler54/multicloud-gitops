@@ -49,8 +49,11 @@ spec:
     - image: 'registry.access.redhat.com/ubi8/go-toolset:latest'
       args:
         - mcad-controller
-      command:
-        - make
+      script: |
+        #!/usr/bin/env sh
+        git config --global --add safe.directory /workspace/source/multi-cluster-app-dispatcher
+        make mcad-controller
+        
       name: mcad-controller
       workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
       resources:

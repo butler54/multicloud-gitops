@@ -21,7 +21,6 @@ spec:
       value: $(params.APP_SOURCE_REVISION)
     - name: depth
       value: "0"
-    not sure what this is for,
     - name: subdirectory
       value: multi-cluster-app-dispatcher
     - name: deleteExisting

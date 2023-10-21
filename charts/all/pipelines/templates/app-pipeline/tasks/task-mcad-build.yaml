@@ -16,6 +16,24 @@ spec:
   steps:
     - image: 'registry.access.redhat.com/ubi8/go-toolset:latest'
       args:
+        - config
+        - '--global'
+        - '--add'
+        - 'safe.directory'
+        - '/workspace/source/multi-cluster-app-dispatcher'
+      command:
+        - git 
+      name: git config setup
+      workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
+      resources:
+        requests:
+          memory: 512Mi
+          cpu: 200m
+        limits:
+          memory: 4Gi
+          cpu: '1'
+    - image: 'registry.access.redhat.com/ubi8/go-toolset:latest'
+      args:
         - '-alh'
       command:
         - ls

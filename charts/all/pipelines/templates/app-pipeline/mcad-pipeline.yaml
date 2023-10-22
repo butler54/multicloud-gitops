@@ -35,6 +35,13 @@ spec:
   - name: build-app
     runAfter:
     - source-clone-mcad
+    params:
+    - name: IMAGE
+      value: image-registry.openshift-image-registry.svc:5000/test/multi-cluster-app-dispatcher
+    - name: TLSVERIFY
+      value: 'false'
+    - name: IMAGE
+      value:  
     taskRef:
       kind: Task
       name: mcad-build

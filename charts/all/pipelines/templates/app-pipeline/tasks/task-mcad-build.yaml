@@ -20,11 +20,12 @@ spec:
         - '--global'
         - '--add'
         - 'safe.directory'
-        - '/workspace/source'
+        - '/workspace/source/multi-cluster-app-dispatcher'
       command:
         - git 
       name: gitsetup
-      workingDir: '$(workspaces.source.path)'
+      workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
+      resources:
         requests:
           memory: 512Mi
           cpu: 200m
@@ -37,7 +38,7 @@ spec:
       command:
         - ls
       name: ls
-      workingDir: '$(workspaces.source.path)'
+      workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
       resources:
         requests:
           memory: 512Mi
@@ -45,17 +46,15 @@ spec:
         limits:
           memory: 4Gi
           cpu: '1'
-
     - image: 'registry.access.redhat.com/ubi8/go-toolset:latest'
       args:
         - mcad-controller
       script: |
         #!/usr/bin/env sh
-        git config --global --add safe.directory /workspace/source
+        git config --global --add safe.directory /workspace/source/multi-cluster-app-dispatcher
         make mcad-controller
-        
       name: mcad-controller
-      workingDir: $(workspaces.source.path)
+      workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
       resources:
         requests:
           memory: 512Mi

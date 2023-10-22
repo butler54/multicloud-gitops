@@ -24,8 +24,7 @@ spec:
       command:
         - git 
       name: gitsetup
-      workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
-      resources:
+      workingDir: $(workspaces.source.path)
         requests:
           memory: 512Mi
           cpu: 200m
@@ -38,7 +37,7 @@ spec:
       command:
         - ls
       name: ls
-      workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
+      workingDir: $(workspaces.source.path)
       resources:
         requests:
           memory: 512Mi
@@ -51,11 +50,11 @@ spec:
         - mcad-controller
       script: |
         #!/usr/bin/env sh
-        git config --global --add safe.directory /workspace/source/multi-cluster-app-dispatcher
+        git config --global --add safe.directory /workspace/source
         make mcad-controller
         
       name: mcad-controller
-      workingDir: $(workspaces.source.path)/multi-cluster-app-dispatcher
+      workingDir: $(workspaces.source.path)
       resources:
         requests:
           memory: 512Mi

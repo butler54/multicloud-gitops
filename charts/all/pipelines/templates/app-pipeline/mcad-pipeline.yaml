@@ -42,16 +42,14 @@ spec:
     - name: source
       workspace: workspace
 
-  - name: build-image
+  - name: buildah-image
     runAfter:
     - build-app
     taskRef:
-      kind: Task
-      name: image-build
+      kind: ClusterTask
+      name: buildah
     workspaces:
     - name: source
       workspace: workspace
-  workspaces:
-  - name: workspace
   workspaces:
   - name: workspace

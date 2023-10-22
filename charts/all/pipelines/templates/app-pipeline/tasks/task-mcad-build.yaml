@@ -20,11 +20,11 @@ spec:
         - '--global'
         - '--add'
         - 'safe.directory'
-        - '/workspace/source/multi-cluster-app-dispatcher'
+        - '/workspace/source'
       command:
         - git 
       name: gitsetup
-      workingDir: $(workspaces.source.path)
+      workingDir: '$(workspaces.source.path)'
         requests:
           memory: 512Mi
           cpu: 200m
@@ -37,7 +37,7 @@ spec:
       command:
         - ls
       name: ls
-      workingDir: $(workspaces.source.path)
+      workingDir: '$(workspaces.source.path)'
       resources:
         requests:
           memory: 512Mi
@@ -45,6 +45,7 @@ spec:
         limits:
           memory: 4Gi
           cpu: '1'
+
     - image: 'registry.access.redhat.com/ubi8/go-toolset:latest'
       args:
         - mcad-controller

@@ -20,6 +20,13 @@ clusterGroup:
     openshift-pipelines:
       name: openshift-pipelines-operator-rh
       namespace: openshift-operators
+    
+    odh:
+      name: opendatahub-operator
+      namespace: openshift-operators
+      channel: fast
+      source: community-operators
+
   projects:
     - hub
     - config-demo

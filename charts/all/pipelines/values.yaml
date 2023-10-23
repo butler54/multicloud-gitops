@@ -27,3 +27,8 @@ global:
     mcad:
       image:
       repo: https://github.com/project-codeflare/multi-cluster-app-dispatcher
+
+    mpi-demo:
+      repo: https://github.com/kubeflow/mpi-operator
+      path: examples/v2beta1/pi
+

@@ -1,0 +1,65 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: mcad-pipeline
+spec:
+  params:
+  - default: {{ .Values.global.app.mpi.repo }}
+    description: The application git repository
+    name: APP_SOURCE_GIT
+    type: string
+  - default: main
+    description: The application git revision
+    name: APP_SOURCE_REVISION
+    type: string
+  tasks:
+  - name: source-clone-mpi-operator
+    params:
+    - name: url
+      value: $(params.APP_SOURCE_GIT)
+    - name: revision
+      value: $(params.APP_SOURCE_REVISION)
+    - name: depth
+      value: "0"
+    - name: subdirectory
+      value: mpi-operator
+    - name: deleteExisting
+      value: "true"
+    taskRef:
+      kind: ClusterTask
+      name: git-clone
+    workspaces:
+    - name: output
+      workspace: workspace
+
+  - name: build-image-mpi-operator
+    params:
+    - name: IMAGE
+      value: 'image-registry.openshift-image-registry.svc:5000/devops/mpi-test'
+    - name: TLSVERIFY
+      value: 'false'
+    - name: CONTEXT
+      value: '/workspace/source/mpi-operator/{{ .global.app.mpi.path }}'
+    runAfter:
+    - build-app
+    taskRef:
+      kind: ClusterTask
+      name: buildah
+    workspaces:
+    - name: source
+      workspace: workspace
+
+  workspaces:
+  - name: workspace
+
+  # - name: buildah-image
+  #   runAfter:
+  #   - build-app
+  #   taskRef:
+  #     kind: ClusterTask
+  #     name: buildah
+  #   workspaces:
+  #   - name: source
+  #     workspace: workspace
+  # workspaces:
+  # - name: workspace

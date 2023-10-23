@@ -45,7 +45,7 @@ spec:
   - name: build-image
     params:
     - name: IMAGE
-      value: 'image-registry.openshift-image-registry.svc:5000/test/multi-cluster-app-dispatcher'
+      value: 'image-registry.openshift-image-registry.svc:5000/devops/multi-cluster-app-dispatcher'
     - name: TLSVERIFY
       value: 'false'
     - name: CONTEXT

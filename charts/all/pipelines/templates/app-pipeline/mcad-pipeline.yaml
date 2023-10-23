@@ -43,6 +43,13 @@ spec:
       workspace: workspace
   
   - name: build-image
+    params:
+    - name: IMAGE
+      value: 'image-registry.openshift-image-registry.svc:5000/test/multi-cluster-app-dispatcher'
+    - name: TLSVERIFY
+      value: 'false'
+    - name: CONTEXT
+      value: '/workspace/source/multi-cluster-app-dispatcher'
     runAfter:
     - build-app
     taskRef:

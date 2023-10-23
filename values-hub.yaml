@@ -10,6 +10,7 @@ clusterGroup:
   - hello-world
   - devops
   - odh
+  - mpi-operator
 
   subscriptions:
     acm:
@@ -25,7 +26,7 @@ clusterGroup:
     odh:
       name: opendatahub-operator
       namespace: openshift-operators
-      channel: fast
+      channel: Rolling
       source: community-operators
 
     codeflare:

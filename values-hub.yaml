@@ -3,13 +3,13 @@ clusterGroup:
   isHubCluster: true
 
   namespaces:
-    - open-cluster-management
-    - vault
-    - golang-external-secrets
-    - config-demo
-    - hello-world
-    - devops
-    - odh
+  - open-cluster-management
+  - vault
+  - golang-external-secrets
+  - config-demo
+  - hello-world
+  - devops
+  - odh
 
   subscriptions:
     acm:
@@ -21,19 +21,25 @@ clusterGroup:
     openshift-pipelines:
       name: openshift-pipelines-operator-rh
       namespace: openshift-operators
-    
+
     odh:
       name: opendatahub-operator
       namespace: openshift-operators
       channel: fast
       source: community-operators
 
+    codeflare:
+      name: codeflare-operator
+      namespace: openshift-operators
+      channel: alpha
+      source: community-operators
+
   projects:
-    - hub
-    - config-demo
-    - hello-world
-    - devops
-    - odh 
+  - hub
+  - config-demo
+  - hello-world
+  - devops
+  - odh
 
   applications:
     acm:
@@ -45,7 +51,7 @@ clusterGroup:
       - group: internal.open-cluster-management.io
         kind: ManagedClusterInfo
         jsonPointers:
-          - /spec/loggingCA
+        - /spec/loggingCA
 
     vault:
       name: vault
@@ -82,16 +88,16 @@ clusterGroup:
         - /imagePullSecrets
         - /secrets
       overrides:
-        - name: cloudProvider.storageClass
-          value: ibmc-vpc-block-10iops-tier
-        - name: cloudProvider.provisioner
-          value: "vpc.block.csi.ibm.io"
+      - name: cloudProvider.storageClass
+        value: ibmc-vpc-block-10iops-tier
+      - name: cloudProvider.provisioner
+        value: "vpc.block.csi.ibm.io"
     odh:
       name: odh
       namespace: odh
       project: odh
       path: charts/all/odh
-      
+
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule

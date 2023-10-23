@@ -10,12 +10,6 @@ spec:
       managementState: Managed
     dashboard:
       managementState: Managed
-    datasciencepipelines:
-      managementState: Managed
-    kserve:
-      managementState: Managed
-    modelmeshserving:
-      managementState: Managed
     ray:
       managementState: Managed
     workbenches:

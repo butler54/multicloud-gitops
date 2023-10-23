@@ -35,28 +35,23 @@ spec:
   - name: build-app
     runAfter:
     - source-clone-mcad
-    params:
-    - name: IMAGE
-      value: image-registry.openshift-image-registry.svc:5000/test/multi-cluster-app-dispatcher
-    - name: TLSVERIFY
-      value: 'false'
-    - name: IMAGE
-      value:  
     taskRef:
       kind: Task
       name: mcad-build
     workspaces:
     - name: source
       workspace: workspace
-
-  - name: buildah-image
-    runAfter:
-    - build-app
-    taskRef:
-      kind: ClusterTask
-      name: buildah
-    workspaces:
-    - name: source
-      workspace: workspace
   workspaces:
   - name: workspace
+
+  # - name: buildah-image
+  #   runAfter:
+  #   - build-app
+  #   taskRef:
+  #     kind: ClusterTask
+  #     name: buildah
+  #   workspaces:
+  #   - name: source
+  #     workspace: workspace
+  # workspaces:
+  # - name: workspace

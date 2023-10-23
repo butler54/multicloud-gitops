@@ -9,6 +9,7 @@ clusterGroup:
     - config-demo
     - hello-world
     - devops
+    - odh
 
   subscriptions:
     acm:
@@ -32,6 +33,7 @@ clusterGroup:
     - config-demo
     - hello-world
     - devops
+    - odh 
 
   applications:
     acm:
@@ -84,7 +86,12 @@ clusterGroup:
           value: ibmc-vpc-block-10iops-tier
         - name: cloudProvider.provisioner
           value: "vpc.block.csi.ibm.io"
-
+    odh:
+      name: odh
+      namespace: odh
+      project: odh
+      path: charts/all/odh
+      
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm
     # The default schedule is every 10 minutes: imperative.schedule

@@ -31,4 +31,5 @@ global:
     mpi:
       repo: https://github.com/kubeflow/mpi-operator
       path: examples/v2beta1/pi
+      revision: master
 

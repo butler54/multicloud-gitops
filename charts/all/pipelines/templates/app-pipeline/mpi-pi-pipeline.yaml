@@ -39,7 +39,7 @@ spec:
     - name: TLSVERIFY
       value: 'false'
     - name: CONTEXT
-      value: '/workspace/source/mpi-operator/{{ .global.app.mpi.path }}'
+      value: '/workspace/source/mpi-operator/{{ .Values.global.app.mpi.path }}'
     runAfter:
     - build-app
     taskRef:

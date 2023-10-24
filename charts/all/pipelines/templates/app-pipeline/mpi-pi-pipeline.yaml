@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: mcad-pipeline
+  name: mpi-pipeline
 spec:
   params:
   - default: {{ .Values.global.app.mpi.repo }}
@@ -41,7 +41,7 @@ spec:
     - name: CONTEXT
       value: '/workspace/source/mpi-operator/{{ .Values.global.app.mpi.path }}'
     runAfter:
-    - build-app
+    - ource-clone-mpi-operator
     taskRef:
       kind: ClusterTask
       name: buildah

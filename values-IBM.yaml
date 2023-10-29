@@ -1,0 +1,3 @@
+cloudProvider:
+  storageClass: bmc-vpc-block-10iops-tier
+  provisioner: "vpc.block.csi.ibm.io"

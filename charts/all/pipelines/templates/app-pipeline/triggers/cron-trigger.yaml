@@ -1,0 +1,11 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: CronTrigger
+metadata:
+  name: mpi-nightly-pipeline
+spec:
+  schedule: "0 1 * * *"
+  timezone: "America/New_York"
+  startingDeadlineSeconds: 3600
+  pipelineRef:
+    name: mpi-pipelines

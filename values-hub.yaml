@@ -91,11 +91,12 @@ clusterGroup:
         jsonPointers:
         - /imagePullSecrets
         - /secrets
-      overrides:
-      - name: cloudProvider.storageClass
-        value: ibmc-vpc-block-10iops-tier
-      - name: cloudProvider.provisioner
-        value: "vpc.block.csi.ibm.io"
+        # ignore this to 
+        # overrides:
+        # - name: cloudProvider.storageClass
+        #   value: ibmc-vpc-block-10iops-tier
+        # - name: cloudProvider.provisioner
+        #   value: "vpc.block.csi.ibm.io"
     odh:
       name: odh
       namespace: odh

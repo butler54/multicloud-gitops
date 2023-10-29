@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: manual-mcad-run-1
+  namespace: devops
+spec:
+  pipelineRef:
+    name: mcad-pipeline
+  workspaces:
+    - name: workspace # must match workspace name in Task
+      persistentVolumeClaim:
+        claimName: pipeline-pvc # this PVC must already exist
+      subPath: mcad

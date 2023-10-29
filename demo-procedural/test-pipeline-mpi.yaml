@@ -1,0 +1,13 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: manual-mpi-run
+  namespace: devops
+spec:
+  pipelineRef:
+    name: mpi-pipeline
+  workspaces:
+  - name: workspace # must match workspace name in Task
+    persistentVolumeClaim:
+      claimName: pipeline-pvc # this PVC must already exist
+    subPath: mpi

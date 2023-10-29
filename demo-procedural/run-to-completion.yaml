@@ -1,0 +1,35 @@
+apiVersion: workload.codeflare.dev/v1beta1
+kind: AppWrapper
+metadata:
+  name: cjb-test-1
+spec:
+  resources:
+    GenericItems:
+    - replicas: 1
+      generictemplate:
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: cjb-test-1
+          labels:
+            app: cjb-test-1
+        spec:
+          selector:
+            matchLabels:
+              app: cjb-test-1
+          replicas: 2
+          template:
+            metadata:
+              labels:
+                app: cjb-test-1
+            spec:
+              containers:
+              - name: cjb-test-1
+                image: kicbase/echo-server:1.0
+                ports:
+                - containerPort: 80
+                resources:
+                  requests:
+                    cpu: 100m
+                    memory: 256Mi
+

@@ -1,3 +1,4 @@
-# parallel compute test scenarios
+# Demo procedural
+# DO NOT GITOPS DEPLOY
 
-These are explicitly for testing MCAD / batch compute
+Code in this folder is various forms of procedural tests. Some are useful fragments, others are tests.

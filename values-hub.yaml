@@ -1,3 +1,6 @@
+# For my sanity
+# Cluster groups are a tag based overlay on a cluster.
+# Be default the bootstrap script will use the cluster group called hub.
 clusterGroup:
   name: hub
   isHubCluster: true

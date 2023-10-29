@@ -1,11 +1,16 @@
-# Multicloud Gitops
+# validated-patterns-demos
+This is a learning and demonstrations repo that uses [validated patterns](https://validated-patterns.io). 
+The demos vary. Some have been used to boost my knowledge, some to test particular functionality in test environments.
+
+This was build off of the core [Multicloud GitOps](http://validated-patterns.io/multicloud-gitops/) pattern. Refer to the core instructions on bootstrappng clusters.
+
+## Required / tested infrastructure
+This system has been tested on an OpenShift Cluster. Both [ROSA](https://aws.amazon.com/rosa/) on AWS and [ROCS](https://www.ibm.com/products/openshift) on [IBM Cloud](https://cloud.ibm.com) have been used as host systems.
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-[Live build status](https://validatedpatterns.io/ci/?pattern=mcgitops)
 
-## Start Here
+## Demos
+A list of the demos here and instructions on how to use them.
 
-If you've followed a link to this repository, but are not really sure what it contains
-or how to use it, head over to [Multicloud GitOps](http://hybrid-cloud-patterns.io/multicloud-gitops/)
-for additional context and installation instructions
+

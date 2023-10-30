@@ -1,4 +1,6 @@
-# not sure why this is IBMCloud vs IBM .. but it is.
+# not sure why this is IBMCloud vs IBM .. but it is
+
+# This overrides the default behaviour within the global or hub chart
 # clusterGroup:
 #   applications:
 #     pipelines:
@@ -8,7 +10,7 @@
 #       - name: cloudProvider.provisioner
 #         value: "vpc.block.csi.ibm.io"
 
+# this directly overrides a field in the definition of a values file in a helm chart
 
-#
 cloudProvider:
   storageClass: ibmc-vpc-block-10iops-tier

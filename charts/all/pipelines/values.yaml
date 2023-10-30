@@ -1,5 +1,6 @@
-# cloudProvider:
-#   storageClass: gp3-csi
+# AWS default .. won't work
+cloudProvider:
+  storageClass: gp3-csi
 
 site:
   name: example

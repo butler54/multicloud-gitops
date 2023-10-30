@@ -1,3 +1,8 @@
-cloudProvider:
-  storageClass: bmc-vpc-block-10iops-tier
-  provisioner: "vpc.block.csi.ibm.io"
+clusterGroup:
+  applications:
+    pipelines:
+      overrides:
+      - name: cloudProvider.storageClass
+        value: ibmc-vpc-block-10iops-tier
+      - name: cloudProvider.provisioner
+        value: "vpc.block.csi.ibm.io"

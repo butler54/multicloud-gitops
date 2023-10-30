@@ -5,7 +5,8 @@
 # PLEASE read https://github.com/hybrid-cloud-patterns/common/tree/main/letsencrypt#readme
 # for all the limitations around it
 
-
+cloudProvider:
+  storageClass: gp3-csi
 # letsencrypt:
 #   enabled: true
 #   api_endpoint: true

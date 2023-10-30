@@ -1,12 +1,14 @@
 # not sure why this is IBMCloud vs IBM .. but it is.
-clusterGroup:
-  applications:
-    pipelines:
-      overrides:
-      - name: cloudProvider.storageClass
-        value: ibmc-vpc-block-10iops-tier
-      - name: cloudProvider.provisioner
-        value: "vpc.block.csi.ibm.io"
+# clusterGroup:
+#   applications:
+#     pipelines:
+#       overrides:
+#       - name: cloudProvider.storageClass
+#         value: ibmc-vpc-block-10iops-tier
+#       - name: cloudProvider.provisioner
+#         value: "vpc.block.csi.ibm.io"
 
 
 #
+cloudProvider:
+  storageClass: ibmc-vpc-block-10iops-tier

@@ -29,7 +29,7 @@ clusterGroup:
     odh:
       name: opendatahub-operator
       namespace: openshift-operators
-      channel: rolling
+      channel: fast
       source: community-operators
 
     codeflare:

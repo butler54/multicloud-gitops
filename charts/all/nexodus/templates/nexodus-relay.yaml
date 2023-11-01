@@ -21,7 +21,7 @@ spec:
               securityContext:
                 runAsUser: 0
               command: ['nexd']
-              args: ['--stun','--service-url=https://try.nexodus.127.0.0.1.nip.io', '--username=$(NXT_USERNAME)', '--password=$(NXT_PASSWORD)', 'relay']
+              args: ['--stun','--service-url=https://try.nexodus.io', '--username=$(NXT_USERNAME)', '--password=$(NXT_PASSWORD)', 'relay']
               ports:
               - containerPort: 51820
                 protocol: UDP

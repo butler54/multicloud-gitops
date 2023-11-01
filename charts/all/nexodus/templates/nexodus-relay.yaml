@@ -25,6 +25,8 @@ spec:
               ports:
               - containerPort: 51820
                 protocol: UDP
+              securityContextConstraints:  # Apply the SCC here
+                name: run-as-root
               env:
               - name: NXT_USERNAME
                 valueFrom:

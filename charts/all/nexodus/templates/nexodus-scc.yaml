@@ -1,0 +1,34 @@
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: run-as-root
+allowPrivilegeEscalation: false
+defaultAddCapabilities: []
+requiredDropCapabilities:
+  - ALL
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: MustRunAs
+seccompProfiles:
+  - docker/default
+volumes:
+  - configMap
+  - downwardAPI
+  - emptyDir
+  - hostPath
+  - persistentVolumeClaim
+  - projected
+  - secret
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: true
+allowPrivilegedContainer: false
+allowedCapabilities: []
+readOnlyRootFilesystem: false
+supplementalGroups:
+  type: RunAsAny
+users:
+  - system:serviceaccount:kube-system:replicaset-controller

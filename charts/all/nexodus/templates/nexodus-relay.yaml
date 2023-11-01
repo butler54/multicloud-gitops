@@ -19,7 +19,7 @@ spec:
             - name: nexodus-relay
               image:  quay.io/nexodus/nexd
               command: ['nexd']
-              args: ['--service-url=https://try.nexodus.127.0.0.1.nip.io',  '--stun', 'relay', '--username=$(NXT_USERNAME)', '--password=$(NXT_PASSWORD)']
+              args: ['--stun','--service-url=https://try.nexodus.127.0.0.1.nip.io', '--username=$(NXT_USERNAME)', '--password=$(NXT_PASSWORD)', 'relay']
               ports:
               - containerPort: 51820
                 protocol: UDP

@@ -1,41 +1,41 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-    name: nexodus-relay-deployment
-    nemespace: nexodus
-    labels:
-        app: nexodus-relay
-spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: nexodus-relay
-    template:
-        metadata:
-            labels:
-                app: nexodus-relay
-        spec:
-            containers:
-            - name: nexodus-relay
-              image:  quay.io/nexodus/nexd
-              securityContext:
-                runAsUser: 0
-                privileged: true
-              command: ['nexd']
-              args: ['--stun','--service-url=https://try.nexodus.io', '--username=$(NXT_USERNAME)', '--password=$(NXT_PASSWORD)', 'relay']
-              ports:
-              - containerPort: 51820
-                protocol: UDP
-              securityContextConstraints:  # Apply the SCC here
-                name: run-as-root
-              env:
-              - name: NXT_USERNAME
-                valueFrom:
-                  secretKeyRef:
-                    name: nexodus-creds-secret
-                    key: username
-              - name: NXT_PASSWORD
-                valueFrom:
-                  secretKeyRef:
-                    name: nexodus-creds-secret
-                    key: password
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#     name: nexodus-relay-deployment
+#     nemespace: nexodus
+#     labels:
+#         app: nexodus-relay
+# spec:
+#     replicas: 1
+#     selector:
+#         matchLabels:
+#             app: nexodus-relay
+#     template:
+#         metadata:
+#             labels:
+#                 app: nexodus-relay
+#         spec:
+#             containers:
+#             - name: nexodus-relay
+#               image:  quay.io/nexodus/nexd
+#               securityContext:
+#                 runAsUser: 0
+#                 privileged: true
+#               command: ['nexd']
+#               args: ['--stun','--service-url=https://try.nexodus.io', '--username=$(NXT_USERNAME)', '--password=$(NXT_PASSWORD)', 'relay']
+#               ports:
+#               - containerPort: 51820
+#                 protocol: UDP
+#               securityContextConstraints:  # Apply the SCC here
+#                 name: run-as-root
+#               env:
+#               - name: NXT_USERNAME
+#                 valueFrom:
+#                   secretKeyRef:
+#                     name: nexodus-creds-secret
+#                     key: username
+#               - name: NXT_PASSWORD
+#                 valueFrom:
+#                   secretKeyRef:
+#                     name: nexodus-creds-secret
+#                     key: password

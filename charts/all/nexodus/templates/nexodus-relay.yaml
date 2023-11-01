@@ -17,19 +17,19 @@ spec:
         spec:
             containers:
             - name: nexodus-relay
-                image:  quay.io/nexodus/nexd
-                command: ["nexd --service-url https://try.nexodus.127.0.0.1.nip.io --stun relay --username=$NXT_USERNAME --password=$NXT_PASSWORD"]
-                ports:
-                - containerPort: 51820
-                  protocol: UDP
-                env:
-                - name: NXT_USERNAME
-                  valueFrom:
-                    secretKeyRef:
-                      name: nexodus-creds-secret
-                      key: username
-                - name: NXT_PASSWORD
-                  valueFrom:
-                    secretKeyRef:
-                      name: nexodus-creds-secret
-                      key: password
+              image:  quay.io/nexodus/nexd
+              command: ["nexd --service-url https://try.nexodus.127.0.0.1.nip.io --stun relay --username=$NXT_USERNAME --password=$NXT_PASSWORD"]
+              ports:
+              - containerPort: 51820
+                protocol: UDP
+              env:
+              - name: NXT_USERNAME
+                valueFrom:
+                  secretKeyRef:
+                    name: nexodus-creds-secret
+                    key: username
+              - name: NXT_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: nexodus-creds-secret
+                    key: password

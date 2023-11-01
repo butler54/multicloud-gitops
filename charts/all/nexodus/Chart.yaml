@@ -1,0 +1,6 @@
+apiVersion: v2
+description: Deployment of nexodus components into a OCP cluster on a cloud
+keywords:
+- pattern
+name: nexodus
+version: 0.0.1

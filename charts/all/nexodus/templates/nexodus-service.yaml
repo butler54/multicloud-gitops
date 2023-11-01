@@ -3,6 +3,9 @@ kind: Service
 metadata:
     name: nexodus-lb
     namespace: nexodus
+    annotations:
+        service.kubernetes.io/ibm-load-balancer-cloud-provider-enable-features: "nlb"
+
 spec:
     selector:
         app: nexodus-relay

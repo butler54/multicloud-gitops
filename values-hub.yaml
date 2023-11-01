@@ -19,7 +19,7 @@ clusterGroup:
   - devops
   - odh
   - mpi-operator
-
+  - nexodus
   subscriptions:
     acm:
       name: advanced-cluster-management
@@ -49,7 +49,7 @@ clusterGroup:
   - hello-world
   - devops
   - odh
-
+  - nexodus
   sharedValueFiles:
   - '/overrides/values-{{ $.Values.global.clusterPlatform }}.yaml'
   - '/overrides/values-{{ $.Values.global.clusterPlatform }}-{{ $.Values.global.clusterVersion }}.yaml'
@@ -127,6 +127,12 @@ clusterGroup:
       namespace: odh
       project: odh
       path: charts/all/odh
+
+    nexodus:
+      name: nexodus
+      namespace: nexodus
+      project: nexodus
+      path: charts/all/nexodus
 
   imperative:
     # NOTE: We *must* use lists and not hashes. As hashes lose ordering once parsed by helm

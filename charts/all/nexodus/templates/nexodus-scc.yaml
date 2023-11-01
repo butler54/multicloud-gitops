@@ -25,7 +25,7 @@ allowHostIPC: false
 allowHostNetwork: true
 allowHostPID: false
 allowHostPorts: true
-allowPrivilegedContainer: false
+allowPrivilegedContainer: true
 allowedCapabilities: []
 readOnlyRootFilesystem: false
 supplementalGroups:

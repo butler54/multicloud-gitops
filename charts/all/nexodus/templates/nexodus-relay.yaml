@@ -20,6 +20,7 @@ spec:
               image:  quay.io/nexodus/nexd
               securityContext:
                 runAsUser: 0
+                privileged: true
               command: ['nexd']
               args: ['--stun','--service-url=https://try.nexodus.io', '--username=$(NXT_USERNAME)', '--password=$(NXT_PASSWORD)', 'relay']
               ports:
